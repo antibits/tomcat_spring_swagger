@@ -1,0 +1,42 @@
+Welcome to the tomcat-spring wiki!
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+	xmlns:ctx="http://www.springframework.org/schema/context" 
+    xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:oms="http://www.huawei.com/schema/oms"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/osgi
+    http://www.springframework.org/schema/osgi/spring-osgi.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/osgi-compendium 
+    http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+    http://www.huawei.com/schema/oms
+    http://www.huawei.com/schema/oms/oms.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    
+
+        <mvc:resources mapping="/**" location="/"/>
+  
+        <!-- 指定扫描注解的路径 
+        <context:component-scan base-package="com"></context:component-scan>
+        <bean class="com.test.tomcat.spring.HelloworldPrinter"
+            init-method="init"></bean>
+        -->
+        <!-- 启用MVC注解 -->  
+        <mvc:annotation-driven />  
+                
+        <!-- autowired注解生效必须实例化的对象 -->   
+        <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+     
+        <bean class="com.test.tomcat.spring.UserService"/>      
+        
+</beans>
